@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Siparis hesabı:</strong>
+  <%= @sip.cari.unvan %>
+</p>
+<p>
+  <strong>Siparis stok:</strong>
+  <%= @sip.stok.stok_adi%>
+</p>
+
+
+<p>
+  <strong>Siparis tarihi:</strong>
+  <%= @sip.siparis_tarihi %>
+</p>
+
+<p>
+  <strong>Termin tarihi:</strong>
+  <%= @sip.termin_tarihi %>
+</p>
+
+<p>
+  <strong>Siparis miktar:</strong>
+  <%= @sip.siparis_miktar %>
+</p>
+
+<p>
+  <strong>Sevk miktar:</strong>
+  <%= @sip.sevk_miktar %>
+</p>
+
+<p>
+  <strong>Kalan miktar:</strong>
+  <%= @sip.kalan_miktar %>
+</p>
+
+<%= link_to 'Edit', edit_sip_path(@sip) %> |
+|
+<%= link_to 'Back', sips_path %>

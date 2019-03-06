@@ -1,0 +1,2 @@
+module AsamaTanimsHelper
+end

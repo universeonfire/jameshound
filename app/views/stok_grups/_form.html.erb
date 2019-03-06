@@ -1,0 +1,22 @@
+<%= form_with(model: stok_grup, local: true) do |form| %>
+  <% if stok_grup.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stok_grup.errors.count, "error") %> prohibited this stok_grup from being saved:</h2>
+
+      <ul>
+      <% stok_grup.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :grup_adi %>
+    <%= form.text_field :grup_adi %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

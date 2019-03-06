@@ -1,0 +1,57 @@
+<%= form_with(model: sip, local: true) do |form| %>
+  <% if sip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sip.errors.count, "error") %> prohibited this sip from being saved:</h2>
+
+      <ul>
+      <% sip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :cari_id %>
+     <%= form.collection_select(:cari_id  ,Cari.all, :id, :unvan,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+  </div>
+  <div class="field">
+    <%= form.label :stok_id %>
+     <%= form.collection_select(:stok_id  ,Stok.all, :id, :stok_adi,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+  </div>
+  <div class="field">
+    <%= form.label :siparis_tarihi %>
+    <%= form.date_select :siparis_tarihi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :termin_tarihi %>
+    <%= form.date_select :termin_tarihi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :siparis_miktar %>
+    <%= form.number_field :siparis_miktar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sevk_miktar %>
+    <%= form.number_field :sevk_miktar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kalan_miktar %>
+    <%= form.number_field :kalan_miktar %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

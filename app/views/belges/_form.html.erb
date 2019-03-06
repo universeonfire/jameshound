@@ -1,0 +1,38 @@
+<%= form_with(model: belge, local: true) do |form| %>
+  <% if belge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(belge.errors.count, "error") %> prohibited this belge from being saved:</h2>
+
+      <ul>
+      <% belge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :baslik %>
+    <%= form.text_field :baslik %>
+  </div>
+  <div class="field">
+    <%= form.label :belge_tip_id %>
+     <%= form.collection_select(:belge_tip_id ,BelgeTip.all, :id, :baslik,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+  </div>
+  <div class="field">
+    <%= form.label :asama_tanim_id %>
+     <%= form.collection_select(:asama_tanim_id  ,AsamaTanim.all, :id, :asama_adi,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

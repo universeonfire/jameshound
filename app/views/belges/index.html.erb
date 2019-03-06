@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Belges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Baslik</th>
+      <th>Tipi</th>
+      <th>Aşama</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @belges.each do |belge| %>
+      <tr>
+        <td><%= belge.baslik %></td>
+        <td><%= belge.belge_tip.baslik %></td>
+        <td><%= belge.asama_tanim.asama_adi %></td>
+        <td><%= link_to 'Show', belge %></td>
+        <td><%= link_to 'Edit', edit_belge_path(belge) %></td>
+        <td><%= link_to 'Destroy', belge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Belge', new_belge_path %>

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Asama Tanims</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asama adi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @asama_tanims.each do |asama_tanim| %>
+      <tr>
+        <td><%= asama_tanim.asama_adi %></td>
+        <td><%= link_to 'Show', asama_tanim %></td>
+        <td><%= link_to 'Edit', edit_asama_tanim_path(asama_tanim) %></td>
+        <td><%= link_to 'Destroy', asama_tanim, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Asama Tanim', new_asama_tanim_path %>

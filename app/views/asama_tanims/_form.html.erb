@@ -1,0 +1,22 @@
+<%= form_with(model: asama_tanim, local: true) do |form| %>
+  <% if asama_tanim.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(asama_tanim.errors.count, "error") %> prohibited this asama_tanim from being saved:</h2>
+
+      <ul>
+      <% asama_tanim.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :asama_adi %>
+    <%= form.text_field :asama_adi %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

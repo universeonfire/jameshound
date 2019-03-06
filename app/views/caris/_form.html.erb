@@ -1,0 +1,84 @@
+<%= form_for(@cari) do |form| %>
+  <% if @cari.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cari.errors.count, "error") %> prohibited this cari from being saved:</h2>
+
+      <ul>
+      <% @cari.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :unvan %>
+    <%= form.text_field :unvan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unvan2 %>
+    <%= form.text_field :unvan2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adres %>
+    <%= form.text_area :adres %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefon %>
+    <%= form.text_field :telefon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :il %>
+    <%= form.text_field :il %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ilce %>
+    <%= form.text_field :ilce %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vergi_dairesi %>
+    <%= form.text_field :vergi_dairesi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vergi_no %>
+    <%= form.text_field :vergi_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :varis_tipi %>
+    <%= form.text_field :varis_tipi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cari_grup_id %>
+     <%= form.collection_select(:cari_grup_id, CariGrup.all, :id, :grup_adi,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+  </div>
+  <p1> Belgeler: </p1>
+  <ul>
+     
+    <%= form.fields_for :cari_belge_tanims do |t| %>
+      
+      <%= render 'cari_belge_tanim_fields', f: t %>
+
+    <%end%>
+    <%= link_to_add_association 'belge ekle', form, :cari_belge_tanims %>
+    
+   </ul> 
+   
+   
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

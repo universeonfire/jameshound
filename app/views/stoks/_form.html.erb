@@ -1,0 +1,55 @@
+<%= form_with(model: stok, local: true) do |form| %>
+  <% if stok.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stok.errors.count, "error") %> prohibited this stok from being saved:</h2>
+
+      <ul>
+      <% stok.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :stok_adi %>
+    <%= form.text_field :stok_adi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stok_adi2 %>
+    <%= form.text_field :stok_adi2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stok_birim %>
+    <%= form.text_field :stok_birim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stok_gen %>
+    <%= form.text_field :stok_gen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stok_yuk %>
+    <%= form.number_field :stok_yuk %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stok_der %>
+    <%= form.number_field :stok_der %>
+  </div>
+  <div class="field">
+    <%= form.label :stok_grup_id %>
+     <%= form.collection_select(:stok_grup_id, StokGrup.all, :id, :grup_adi,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

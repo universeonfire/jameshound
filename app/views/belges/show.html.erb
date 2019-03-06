@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Baslik:</strong>
+  <%= @belge.baslik %>
+  <strong>Tipi:</strong>
+  <%= @belge.belge_tip.baslik %>
+  <strong>Aşama:</strong>
+  <%= @belge.asama_tanim.asama_adi %>
+</p>
+
+<%= link_to 'Edit', edit_belge_path(@belge) %> |
+<%= link_to 'Back', belges_path %>

@@ -1,0 +1,2 @@
+module BelgeTipsHelper
+end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stok Grups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grup adi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stok_grups.each do |stok_grup| %>
+      <tr>
+        <td><%= stok_grup.grup_adi %></td>
+        <td><%= link_to 'Show', stok_grup %></td>
+        <td><%= link_to 'Edit', edit_stok_grup_path(stok_grup) %></td>
+        <td><%= link_to 'Destroy', stok_grup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stok Grup', new_stok_grup_path %>

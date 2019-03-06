@@ -1,0 +1,2 @@
+module BelgesHelper
+end

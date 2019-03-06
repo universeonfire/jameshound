@@ -1,0 +1,12 @@
+<li class = "nested-fields"> 
+  		
+     <%= f.label "Belge Adı" %>
+     <%= f.collection_select(:belge_id, Belge.all, :id, :baslik,
+                {
+                  
+                  include_blank: true
+                },class: "form-control")%>
+      <%= link_to_remove_association "Belge Sil", f %>
+  	
+</li>
+ 

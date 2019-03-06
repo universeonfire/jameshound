@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Belge Tips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Baslik</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @belge_tips.each do |belge_tip| %>
+      <tr>
+        <td><%= belge_tip.baslik %></td>
+        <td><%= link_to 'Show', belge_tip %></td>
+        <td><%= link_to 'Edit', edit_belge_tip_path(belge_tip) %></td>
+        <td><%= link_to 'Destroy', belge_tip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Belge Tip', new_belge_tip_path %>

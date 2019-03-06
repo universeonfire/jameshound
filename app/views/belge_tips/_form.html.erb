@@ -1,0 +1,22 @@
+<%= form_with(model: belge_tip, local: true) do |form| %>
+  <% if belge_tip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(belge_tip.errors.count, "error") %> prohibited this belge_tip from being saved:</h2>
+
+      <ul>
+      <% belge_tip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :baslik %>
+    <%= form.text_field :baslik %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

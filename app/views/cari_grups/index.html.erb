@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cari Grups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grup adi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cari_grups.each do |cari_grup| %>
+      <tr>
+        <td><%= cari_grup.grup_adi %></td>
+        <td><%= link_to 'Show', cari_grup %></td>
+        <td><%= link_to 'Edit', edit_cari_grup_path(cari_grup) %></td>
+        <td><%= link_to 'Destroy', cari_grup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cari Grup', new_cari_grup_path %>

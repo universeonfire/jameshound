@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caris</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unvan</th>
+      <th>Unvan2</th>
+      <th>Adres</th>
+      <th>Telefon</th>
+      <th>Il</th>
+      <th>Ilce</th>
+      <th>Vergi dairesi</th>
+      <th>Vergi no</th>
+      <th>Varis tipi</th>
+      <th>Cari Grup</th>
+      <th>Belgeler</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caris.each do |cari| %>
+      <tr>
+        <td><%= cari.unvan %></td>
+        <td><%= cari.unvan2 %></td>
+        <td><%= cari.adres %></td>
+        <td><%= cari.telefon %></td>
+        <td><%= cari.il %></td>
+        <td><%= cari.ilce %></td>
+        <td><%= cari.vergi_dairesi %></td>
+        <td><%= cari.vergi_no %></td>
+        <td><%= cari.varis_tipi %></td>
+        <td><%= cari.cari_grup.grup_adi %></td>
+        
+          <% cari.cari_belge_tanims.each do |t| %>
+          <td>
+            <p><%=  Belge.find(t.belge_id).baslik %> </p>
+            </td>
+          <%end %>
+
+        <td><%= link_to 'Show', cari %></td>
+        <td><%= link_to 'Edit', edit_cari_path(cari) %></td>
+        <td><%= link_to 'Destroy', cari, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cari', new_cari_path %>
